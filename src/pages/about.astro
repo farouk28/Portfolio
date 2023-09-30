@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout title="About | Lanani Boualem Farouk" description="About Lanani Boualem Farouk">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="About"
+				tagline="Découvrez mon parcours et mes compétences."
+			>
+				<img
+					width="1553"
+					height="873"
+					src="/assets/at-work.jpg"
+					alt="Lanani Farouk at work"
+				/>
+			</Hero>
+
+			<section>
+				<h2 class="section-title">Background</h2>
+				<div class="content">
+					<p>
+						D'un parcours scolaire initial, je me suis tourné vers le dev qui était un de mes rêve d'enfance. J'ai tout d'abord 
+						fait une formation intensive chez <a href="https://www.centrale-mediterranee.fr/fr/passerelle-numerique">l'Ecole Central de Marseille</a>.
+						Mon parcours bien que parsemet d'ambuche, j'ai su acquérir beaucoup de compétences grace à un bon suivi des formateurs
+						et sans négliger un coté très autonome. Celà m'a permis de choisir ma voie et de me focaliser sur le dev et le design UI-UX.
+					</p>
+					<p>
+						Ce qui me carécterise le plus, c'est ma capacité à m'adapter à dez nouveaux environnements et à apprendre de nouvelles choses et de nouvelles technologies.
+						Voulant toujours m'améliorer, j'assure un flux continue d'acquisition de connaissance par mon autonomie.
+					</p>
+					<p>
+						D'une nature ouverte, j'accorde une grande importance à la communication et au partage de connaissances.
+					</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Skills</h2>
+				<div class="content">
+					<p>Autonome, Organisé, Curieux, Créatif, Dynamique, Travail d'équipe</p>
+				</div>
+			</section>
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>
